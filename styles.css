@@ -1,0 +1,28 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+	color: #fff;
+	font-weight: normal;
+	font-family: 'Roboto Slab', serif;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	transform: translateY(-50%);
+	font-size: 42px;
+}
+
+h1 span {
+	font-size: 26px;
+}
+
+h1 strong {
+	color: #ED6713;
+}
+
+canvas {
+	box-shadow: inset 10px 10px rgba(0,0,0,1);
+}

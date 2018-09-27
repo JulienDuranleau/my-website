@@ -5,6 +5,7 @@ html, body {
 
 h1 {
 	color: #fff;
+    text-shadow: 2px 4px rgba(0,0,0,0.15);
 	font-weight: normal;
 	font-family: 'Roboto Slab', serif;
 	position: absolute;
@@ -16,13 +17,22 @@ h1 {
 }
 
 h1 span {
-	font-size: 26px;
+    display: block;
+    padding-top: 10px;
+	font-size: 24px;
 }
 
 h1 strong {
 	color: #ED6713;
 }
 
-canvas {
-	box-shadow: inset 10px 10px rgba(0,0,0,1);
+.overlay {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-shadow: inset 0px 0px 14vw 4vw rgba(0,0,0,0.2);
 }

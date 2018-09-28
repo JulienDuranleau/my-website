@@ -13,31 +13,31 @@ new p5((p5) => {
         sketch = p5.createCanvas(window.innerWidth, window.innerHeight)
 
         for (let i = 0; i < 500; i++) {
-            tick()
+            update()
         }
     }
 
     p5.draw = () => {
-        tick()    
+        update()    
         p5.background('#282a36')
         renderRaindropLines()
         renderRaindropEnds()
+    }
+
+    p5.mouseMoved = () => {
+        const xo = p5.pmouseX - p5.mouseX
+
+        for (let i = raindrops.length - 1; i >= 0; i--) {
+            //raindrops[i].pos.x += xo * raindrops[i].z * 0.05
+            //raindrops[i].speed *= 1.01
+        }
     }
 
     window.onresize = () => {
         p5.resizeCanvas(window.innerWidth, window.innerHeight)
     }
 
-    function mouseMoved() {
-        const xo = pmouseX - mouseX
-        const yo = pmouseY - mouseY
-
-        for (let i = raindrops.length - 1; i >= 0; i--) {
-            raindrops[i].pos.x -= xo * raindrops[i].z * 0.05
-        }
-    }
-
-    function tick() {
+    function update() {
         if (Math.random() > 0.8) {
             for (let i = 0; i < 1; i++) {
                 raindrops.push(generateRaindrop())

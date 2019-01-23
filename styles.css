@@ -9,7 +9,7 @@ html, body {
 	top: 50%;
 	width: 100%;
 	transform: translateY(-50%);
-	color: #fff;
+	color: #FFF;
     text-align: center;
 }
 
@@ -26,22 +26,47 @@ h1 strong {
 
 h2 {
     margin: 10px 0px 0px;
-	font-size: 24px;
+	font-size: 22px;
     text-shadow: 2px 4px rgba(0,0,0,0.15);
 	font-weight: normal;
 }
 
 .social {
-    margin: 20px 0px 0px;
+    margin: 40px 0px 0px;
 }
 
 .social a {
+    display: inline-block;
     text-decoration: none;
+    padding: 0px 8px;
 }
 
 .social a svg {
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
+    fill: #111;
+    transition: fill 0.2s ease;
+}
+
+.social a:hover svg {
+    fill: #FFF;
+}
+
+.social a span {
+    display: block;
+    color: #999;
+    font-size: 11px;
+    padding: 3px 10px;
+    margin: 5px 0px;
+    font-family: Helvetica, Arial;
+    font-weight: bold;
+    text-shadow: 0px 0px 1px rgba(255,255,255,0.1);
+    background-color: #111;
+    border-radius: 7px;
+}
+
+.social a:hover span {
+    color: #FFF;
 }
 
 .overlay {

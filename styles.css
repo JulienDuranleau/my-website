@@ -4,6 +4,20 @@ html, body {
 	font-family: 'Roboto Slab', serif;
 }
 
+
+/* ======================================== */
+/* === Index === */
+
+#page-index {
+    transition: all 0.3s ease; 
+    z-index: 200;
+}
+#page-index.hide {
+    transform: translateY(-200px);
+    opacity: 0;
+    z-index: 0;
+}
+
 .centered {
 	position: absolute;
 	top: 50%;
@@ -69,10 +83,84 @@ h2 {
     color: #FFF;
 }
 
+/* ======================================== */
+/* === Projects === */
+#page-projects {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-52%, -200px);
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+    width: 84%;
+    max-width: 1024px;
+    min-height: 500px;
+    font-size: 14px;
+}
+#page-projects a {
+	color: #ED6713;
+}
+#page-projects.show {
+    transform: translate(-52%, 0px);
+    opacity: 1;
+    z-index: 200;
+}
+#page-projects-container {
+    padding: 30px;
+    background: rgba(32,30,30,0.95);
+    box-shadow: 5px 10px 0px 5px rgba(0,0,0,0.5);
+    color: #eee;
+    border: 1px solid #333;
+    margin-bottom: 100px;
+}
+.project {
+    position: relative;
+    overflow: auto;
+    margin: 25px 0px;
+    padding: 25px 0px;
+}
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 20%;
+    width: 60%;
+    height: 0px;
+    border-bottom: 1px solid #444;
+}
+.project:first-child:before {
+    display: none;
+}
+.project img {
+    float: left;
+}
+.project > div {
+    margin-left: 180px;
+}
+.project h3 {
+}
+.project p {
+}
+.project .tags {
+    color: #999;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+.project .links {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.project .links a {
+    display: block;
+}
+/* ======================================== */
+/* === Overlay === */
+
 .overlay {
     content: '';
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;

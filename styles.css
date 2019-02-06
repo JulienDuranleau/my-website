@@ -4,16 +4,26 @@ html, body {
 	font-family: 'Roboto Slab', serif;
 }
 
+body.noscroll {
+    overflow: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
 
 /* ======================================== */
 /* === Index === */
 
 #page-index {
-    transition: all 0.3s ease; 
+    transition: all 0.2s ease-out; 
     z-index: 200;
 }
 #page-index.hide {
-    transform: translateY(-200px);
+    margin-top: -50px;
     opacity: 0;
     z-index: 0;
 }
@@ -89,7 +99,7 @@ h2 {
     position: absolute;
     top: 100px;
     left: 50%;
-    transform: translate(-52%, -200px);
+    transform: translate(-52%, 0);
     opacity: 0;
     z-index: 0;
     transition: all 0.3s ease;
@@ -97,14 +107,26 @@ h2 {
     max-width: 1024px;
     min-height: 500px;
     font-size: 14px;
+    margin-top: -50px;
 }
 #page-projects a {
 	color: #ED6713;
 }
 #page-projects.show {
-    transform: translate(-52%, 0px);
+    margin-top: 0px;
     opacity: 1;
     z-index: 200;
+}
+#close-projects-bt {
+
+}
+#close-projects-bt svg {
+	fill: #ED6713;
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+    position: relative;
+    top: -1px;
 }
 #page-projects-container {
     padding: 30px;
@@ -117,7 +139,7 @@ h2 {
 .project {
     position: relative;
     overflow: auto;
-    margin: 25px 0px;
+    margin: 5px 0px;
     padding: 25px 0px;
 }
 .project::before {
@@ -134,11 +156,19 @@ h2 {
 }
 .project img {
     float: left;
+    border: 1px solid #222;
+    box-shadow: 0 0 0 3px #050505;
+    margin-left: 3px;
+    width: 150px;
+    height: 150px;
+    background-color: #050505;
 }
 .project > div {
     margin-left: 180px;
 }
 .project h3 {
+    font-size: 1.5em;
+    margin-top: 0px;
 }
 .project p {
 }
@@ -153,6 +183,7 @@ h2 {
 }
 .project .links a {
     display: block;
+    line-height: 1.5em;
 }
 /* ======================================== */
 /* === Overlay === */

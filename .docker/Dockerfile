@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER blanko
+MAINTAINER julienduranleau
 
 ENV DEBIAN_FRONTEND=noninteractive
 

@@ -75,6 +75,12 @@ h2 {
 	font-weight: normal;
 }
 
+h2 .heart {
+    color: #F88;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .social {
     margin: 40px 0px 0px;
 }

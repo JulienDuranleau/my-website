@@ -50,7 +50,7 @@
             }
         }
 
-        xmlhttp.open("GET", "projects.html", true)
+        xmlhttp.open("GET", pageProjects.getAttribute('data-src'), true)
         xmlhttp.send()
     }
 

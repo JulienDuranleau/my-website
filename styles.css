@@ -5,7 +5,7 @@ html, body {
 }
 
 body.noscroll {
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 canvas {
@@ -21,6 +21,11 @@ canvas {
 #page-index {
     transition: all 0.2s ease-out; 
     z-index: 200;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 #page-index.hide {
     margin-top: -50px;
@@ -35,6 +40,21 @@ canvas {
 	transform: translateY(-50%);
 	color: #FFF;
     text-align: center;
+}
+
+.lang {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: #777;
+    text-decoration: none;
+    border: 1px solid #777;
+    padding: 2px 5px;
+    transition: all 0.2s ease;
+}
+.lang:hover {
+	color: #ED6713;
+    border-color: #ED6713;
 }
 
 h1 {
@@ -111,6 +131,10 @@ h2 {
 }
 #page-projects a {
 	color: #ED6713;
+    transition: color 0.2s ease;
+}
+#page-projects a:hover {
+	color: #F99C31;
 }
 #page-projects.show {
     margin-top: 0px;
@@ -171,6 +195,7 @@ h2 {
     margin-top: 0px;
 }
 .project p {
+    max-width: 650px;
 }
 .project .tags {
     color: #999;

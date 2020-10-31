@@ -18,19 +18,10 @@ new p5((p5) => {
     }
 
     p5.draw = () => {
-        update()    
+        update()
         p5.background('#282a36')
         renderRaindropLines()
         renderRaindropEnds()
-    }
-
-    p5.mouseMoved = () => {
-        const xo = p5.pmouseX - p5.mouseX
-
-        for (let i = raindrops.length - 1; i >= 0; i--) {
-            //raindrops[i].pos.x += xo * raindrops[i].z * 0.05
-            //raindrops[i].speed *= 1.01
-        }
     }
 
     window.onresize = () => {
@@ -39,18 +30,18 @@ new p5((p5) => {
 
     function update() {
         if (Math.random() > 0.8) {
-            for (let i = 0; i < 1; i++) {
-                raindrops.push(generateRaindrop())
-            }
+            raindrops.push(generateRaindrop())
         }
 
+        let raindrop = null
+
         for (let i = raindrops.length - 1; i >= 0; i--) {
-            raindrops[i].pos.x += xa * raindrops[i].speed
-            raindrops[i].pos.y += ya * raindrops[i].speed
-            
-            if (raindrops[i].pos.y - raindrops[i].length > window.innerHeight) {
+            raindrop = raindrops[i]
+            raindrop.pos.x += xa * raindrop.speed
+            raindrop.pos.y += ya * raindrop.speed
+
+            if (raindrop.pos.y - raindrop.length > window.innerHeight) {
                 raindrops.splice(i, 1)
-                continue
             }
         }
     }
@@ -58,13 +49,16 @@ new p5((p5) => {
     function renderRaindropLines() {
         p5.noFill()
 
-        for (let i = raindrops.length - 1; i >= 0; i--) {
-            const x1 = raindrops[i].pos.x
-            const y1 = raindrops[i].pos.y
-            const x2 = raindrops[i].pos.x + ixa * raindrops[i].length
-            const y2 = raindrops[i].pos.y + iya * raindrops[i].length
+        let raindrop = null
 
-            p5.stroke(raindrops[i].color)
+        for (let i = raindrops.length - 1; i >= 0; i--) {
+            raindrop = raindrops[i]
+            const x1 = raindrop.pos.x
+            const y1 = raindrop.pos.y
+            const x2 = raindrop.pos.x + ixa * raindrop.length
+            const y2 = raindrop.pos.y + iya * raindrop.length
+
+            p5.stroke(raindrop.color)
             p5.line(x1, y1, x2, y2)
         }
     }
@@ -72,20 +66,23 @@ new p5((p5) => {
     function renderRaindropEnds() {
         p5.noStroke()
 
-        for (let i = raindrops.length - 1; i >= 0; i--) {
-            const x1 = raindrops[i].pos.x
-            const y1 = raindrops[i].pos.y
+        let raindrop = null
 
-            p5.fill(raindrops[i].color)
-            p5.ellipse(x1,y1,raindrops[i].dotSize,raindrops[i].dotSize)
+        for (let i = raindrops.length - 1; i >= 0; i--) {
+            raindrop = raindrops[i]
+            const x1 = raindrop.pos.x
+            const y1 = raindrop.pos.y
+
+            p5.fill(raindrop.color)
+            p5.ellipse(x1, y1, raindrop.dotSize, raindrop.dotSize)
         }
     }
 
     function generateRaindrop() {
         const z = Math.random()
         const color = p5.color(255, z * 255 * opacity)
-        const pos = { 
-            x: Math.random() * (window.innerWidth + 600) - 300, 
+        const pos = {
+            x: Math.random() * (window.innerWidth + 600) - 300,
             y: 0
         }
         const speed = z * 3 + 2

@@ -59,13 +59,9 @@ canvas {
 
 h1 {
     text-shadow: 2px 4px rgba(0,0,0,0.15);
-	font-size: 42px;
-	font-weight: normal;
+	font-size: 48px;
     margin: 0px;
-}
-
-h1 strong {
-	color: #ED6713;
+    color: #ED6713;
 }
 
 h2 {

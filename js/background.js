@@ -1,10 +1,10 @@
 new p5((p5) => {
+    const backgroundColor = '#282a36'
     const angle = 24
     const xa = Math.cos((90 - angle) * Math.PI / 180)
     const ya = Math.sin((90 - angle) * Math.PI / 180)
     const ixa = Math.cos((90 - angle + 180) * Math.PI / 180)
     const iya = Math.sin((90 - angle + 180) * Math.PI / 180)
-    const opacity = 0.5
 
     let raindrops = []
     let sketch = null
@@ -12,6 +12,7 @@ new p5((p5) => {
     p5.setup = () => {
         sketch = p5.createCanvas(window.innerWidth, window.innerHeight)
 
+        // Simulate frames to start mid-simulation
         for (let i = 0; i < 500; i++) {
             update()
         }
@@ -19,9 +20,8 @@ new p5((p5) => {
 
     p5.draw = () => {
         update()
-        p5.background('#282a36')
-        renderRaindropLines()
-        renderRaindropEnds()
+        p5.background(backgroundColor)
+        renderRaindrop()
     }
 
     window.onresize = () => {
@@ -46,8 +46,9 @@ new p5((p5) => {
         }
     }
 
-    function renderRaindropLines() {
+    function renderRaindrop() {
         p5.noFill()
+        p5.noStroke()
 
         let raindrop = null
 
@@ -60,18 +61,6 @@ new p5((p5) => {
 
             p5.stroke(raindrop.color)
             p5.line(x1, y1, x2, y2)
-        }
-    }
-
-    function renderRaindropEnds() {
-        p5.noStroke()
-
-        let raindrop = null
-
-        for (let i = raindrops.length - 1; i >= 0; i--) {
-            raindrop = raindrops[i]
-            const x1 = raindrop.pos.x
-            const y1 = raindrop.pos.y
 
             p5.fill(raindrop.color)
             p5.ellipse(x1, y1, raindrop.dotSize, raindrop.dotSize)
@@ -80,12 +69,12 @@ new p5((p5) => {
 
     function generateRaindrop() {
         const z = Math.random()
-        const color = p5.color(255, z * 255 * opacity)
+        const color = p5.lerpColor(p5.color(backgroundColor), p5.color(200), z)
         const pos = {
             x: Math.random() * (window.innerWidth + 600) - 300,
             y: 0
         }
-        const speed = z * 3 + 2
+        const speed = z * 2 + 1.5
         const length = Math.random() * 200 + 300
         const dotSize = z * 5 + 3
 
